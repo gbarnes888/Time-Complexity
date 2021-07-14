@@ -1,11 +1,11 @@
 import random
 import time
 
- #Function to generate a random list of n values each between 1-100
+ #Function to generate a random list of n values each between 1-100000
 def generatelist(n):
     list = []
     for x in range(0,n):
-        list.append(random.randint(1,100))
+        list.append(random.randint(1,100000))
     return list
 
  #Function for each sort used
@@ -31,8 +31,14 @@ def bubbleSort(list):
                 list[y+1] = temp
 
 def insertionSort(list):
-    # Our Code Here
-    return
+    n = len(list)
+    for x in range(1,n):
+        temp = list[x]
+        y = x -1
+        while y >= 0 and temp < list[y]:
+            list[y+1] = list[y]
+            y = y-1
+        list[y+1] = temp
 
 def regexSort(list):
     # Our Code Here
@@ -50,12 +56,18 @@ insertionsortlist = masterList[:]
 regexsortlist = masterList[:]
 
  #Run and time sort functions
+ #Bubble Sort
 Start = time.time()
 bubbleSort(bubblesortlist)
 End = time.time()
 bubbleSort_runtime = End - Start
 
+ #Insertion Sort
+Start = time.time()
+insertionSort(insertionsortlist)
+End = time.time()
+insertionSort_runtime = End - Start
+
  #print output
-print("BubbleSort Runtime: " + str(bubbleSort_runtime) + " Seconds")
-print(masterList)
-print(bubblesortlist)
+print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
+print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
