@@ -93,6 +93,7 @@ def regexSort(list):
 
 
  #Gets n as input from user and generates masterList can makes copies for each sort
+print("Good Test value is 1000000 (1 million)")
 n = int(input("Enter a value for n for the size of the list to sort:"))
 masterList = generatelist(n)
 mergesortlist = masterList[:]
@@ -105,13 +106,13 @@ regexsortlist = masterList[:]
  #Run and time sort functions
  #Bubble Sort
 Start = time.time()
-bubbleSort(bubblesortlist)
+# bubbleSort(bubblesortlist)
 End = time.time()
 bubbleSort_runtime = End - Start
 
  #Insertion Sort
 Start = time.time()
-insertionSort(insertionsortlist)
+# insertionSort(insertionsortlist)
 End = time.time()
 insertionSort_runtime = End - Start
 
@@ -133,6 +134,6 @@ print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
 print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
 print("Merge Sort Runtime: " + str(mergesort_runtime) + " Seconds")
 
-#print(masterList)
-#print(bubblesortlist)
-#print(mergesortlist)
+# print(masterList)
+# print(bubblesortlist)
+# print(mergesortlist)
