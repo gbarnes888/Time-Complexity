@@ -99,3 +99,6 @@ heapsort_runtime = End - Start
 print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
 print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
 print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
+
+ #print(masterList)
+ #print(heapsortlist)
