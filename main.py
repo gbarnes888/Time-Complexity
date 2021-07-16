@@ -14,8 +14,30 @@ def mergeSort(list):
     return
 
 def heapSort(list):
-    # Our Code Here
-    return
+    length = len(list)
+    for x in range((length//2)-1,-1,-1):
+        heapify(list,x,length)
+    for x in range(length-1,0,-1):
+        temp = list[0]
+        list[0] = list[x]
+        list[x] = temp
+        heapify(list,0,x)
+
+def heapify(list, root, length):
+    largest = root
+    left = (2*root)+1
+    right = (2*root)+2
+
+    if left < length and list[left] > list[largest]:
+        largest = left
+    if right < length and list[right] > list[largest]:
+        largest = right
+
+    if largest != root:
+        temp = list[largest]
+        list[largest] = list[root]
+        list[root] = temp
+        heapify(list,largest,length)
 
 def quickSort(list):
     # Our Code Here
@@ -68,6 +90,12 @@ insertionSort(insertionsortlist)
 End = time.time()
 insertionSort_runtime = End - Start
 
+ #heap Sort
+Start = time.time()
+heapSort(heapsortlist)
+End = time.time()
+heapsort_runtime = End - Start
  #print output
 print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
 print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
+print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
