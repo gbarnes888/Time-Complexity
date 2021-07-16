@@ -87,7 +87,7 @@ def insertionSort(list):
             y = y-1
         list[y+1] = temp
 
-def regexSort(list):
+def radixSort(list):
     # Our Code Here
     return
 
