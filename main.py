@@ -10,8 +10,33 @@ def generatelist(n):
 
  #Function for each sort used
 def mergeSort(list):
-    # Our Code Here
-    return
+    n = len(list)
+    if n > 1:
+        mid = n // 2
+        Left = list[:mid]
+        Right = list[mid:]
+        mergeSort(Left)
+        mergeSort(Right)
+
+        x = 0
+        y = 0
+        i = 0
+        while x < len(Left) and y < len(Right):
+            if Left[x] > Right[y]:
+                list[i] = Right[y]
+                y = y + 1
+            else:
+                list[i] = Left[x]
+                x = x + 1
+            i = i + 1
+        while x < len(Left):
+            list[i] = Left[x]
+            x = x + 1
+            i = i + 1
+        while y < len(Right):
+            list[i] = Right[y]
+            y = y + 1
+            i = i + 1
 
 def heapSort(list):
     length = len(list)
@@ -95,10 +120,27 @@ Start = time.time()
 heapSort(heapsortlist)
 End = time.time()
 heapsort_runtime = End - Start
+
+ #merge Sort
+Start = time.time()
+mergeSort(mergesortlist)
+End = time.time()
+mergesort_runtime = End - Start
+
  #print output
 print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
 print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
 print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
+print("Merge Sort Runtime: " + str(mergesort_runtime) + " Seconds")
 
- #print(masterList)
- #print(heapsortlist)
+#print(masterList)
+#print(bubblesortlist)
+#print(mergesortlist)
+
+# Switch statement for python
+#def f(x):
+#    match x:
+#        case 'a':
+#            return 1
+#        case 'b':
+#            return 2
