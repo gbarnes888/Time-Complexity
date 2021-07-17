@@ -87,9 +87,52 @@ def insertionSort(list):
             y = y-1
         list[y+1] = temp
 
-def radixSort(list):
-    # Our Code Here
-    return
+# Returns the value of a specific value place.
+def getDigit(num, place):
+    return num // 10**place % 10
+
+# Checks if a list is sorted A->Z
+def isSorted(list):
+    for i in range(1, len(list)):
+        if (list[i] < list[i - 1]):
+            return False
+    return True
+
+# Prints a list
+def printList(list):
+    whole = ""
+    for x in list:
+        whole += (str)(x) + ", "
+    print(whole)
+
+# Radix sort
+def radixSort(list, place = 0):
+    digitCount = [0] * 10
+    
+    # Get digit count array
+    for x in list:
+        digitCount[getDigit(x, place)] += 1
+    
+    # Shift addition
+    for i in range(1, len(digitCount)):
+        digitCount[i] += digitCount[i - 1]
+    
+    # Resorting
+    sortedList = [0] * len(list)
+    for i in range(len(list) - 1, -1, -1):
+        curDigit = getDigit(list[i], place)
+        digitCount[curDigit] -= 1
+        sortedList[digitCount[curDigit]] = list[i]
+    
+    # Recursion step / return step
+    if isSorted(sortedList):
+        print("Sorted!")
+        printList(sortedList)
+        return sortedList
+    else:
+        print("Still not sorted! Iteration " + (str)(place))
+        printList(sortedList)
+        radixSort(sortedList, place + 1)
 
 
  #Gets n as input from user and generates masterList can makes copies for each sort
