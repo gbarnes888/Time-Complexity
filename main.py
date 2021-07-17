@@ -64,9 +64,27 @@ def heapify(list, root, length):
         list[root] = temp
         heapify(list,largest,length)
 
-def quickSort(list):
-    # Our Code Here
-    return
+def quickSort(list,low,high):
+    if low >= high:
+        return
+    split = partition(list,low,high)
+    quickSort(list,low,split-1)
+    quickSort(list,split+1,high)
+
+def partition(list,low,high):
+    x = low-1
+    pivot = list[high]
+
+    for y in range(low,high):
+        if list[y] <= pivot:
+            x = x+1
+            temp = list[x]
+            list[x] = list[y]
+            list[y] = temp
+    temp = list[x+1]
+    list[x+1] = list[high]
+    list[high] = temp
+    return x+1
 
 def bubbleSort(list):
     n = len(list)
@@ -173,13 +191,21 @@ radixSort(radixSortlist)
 End = time.time()
 radixsort_runtime = End - Start
 
+ #Quick Sort
+Start = time.time()
+quickSort(quicksortlist,0,len(quicksortlist)-1)
+End = time.time()
+quicksort_runtime = End - Start
+
  #print output
 print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
 print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
 print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
 print("Merge Sort Runtime: " + str(mergesort_runtime) + " Seconds")
 print("Radix Sort Runtime: " + str(radixsort_runtime) + " Seconds")
+print("quick Sort Runtime: " + str(quicksort_runtime) + " Seconds")
 
 # print(masterList)
+# print(quicksortlist)
 # print(bubblesortlist)
 # print(mergesortlist)
