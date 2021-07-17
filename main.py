@@ -145,13 +145,13 @@ radixSortlist = masterList[:]
  #Run and time sort functions
  #Bubble Sort
 Start = time.time()
-# bubbleSort(bubblesortlist)
+bubbleSort(bubblesortlist)
 End = time.time()
 bubbleSort_runtime = End - Start
 
  #Insertion Sort
 Start = time.time()
-# insertionSort(insertionsortlist)
+insertionSort(insertionsortlist)
 End = time.time()
 insertionSort_runtime = End - Start
 
