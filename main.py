@@ -150,7 +150,6 @@ def radixSort(list, place = 0):
 
 
  #Gets n as input from user and generates masterList can makes copies for each sort
-print("Good Test value is 1000000 (1 million)")
 n = int(input("Enter a value for n for the size of the list to sort:"))
 masterList = generatelist(n)
 mergesortlist = masterList[:]
@@ -166,44 +165,42 @@ Start = time.time()
 bubbleSort(bubblesortlist)
 End = time.time()
 bubbleSort_runtime = End - Start
+print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
 
  #Insertion Sort
 Start = time.time()
 insertionSort(insertionsortlist)
 End = time.time()
 insertionSort_runtime = End - Start
+print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
 
  #heap Sort
 Start = time.time()
 heapSort(heapsortlist)
 End = time.time()
 heapsort_runtime = End - Start
+print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
 
  #merge Sort
 Start = time.time()
 mergeSort(mergesortlist)
 End = time.time()
 mergesort_runtime = End - Start
+print("Merge Sort Runtime: " + str(mergesort_runtime) + " Seconds")
 
 #radix sort
 Start = time.time()
 radixSort(radixSortlist)
 End = time.time()
 radixsort_runtime = End - Start
+print("Radix Sort Runtime: " + str(radixsort_runtime) + " Seconds")
 
  #Quick Sort
 Start = time.time()
 quickSort(quicksortlist,0,len(quicksortlist)-1)
 End = time.time()
 quicksort_runtime = End - Start
-
- #print output
-print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
-print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
-print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
-print("Merge Sort Runtime: " + str(mergesort_runtime) + " Seconds")
-print("Radix Sort Runtime: " + str(radixsort_runtime) + " Seconds")
-print("quick Sort Runtime: " + str(quicksort_runtime) + " Seconds")
+print("Quick Sort Runtime: " + str(quicksort_runtime) + " Seconds")
 
 # print(masterList)
 # print(quicksortlist)
