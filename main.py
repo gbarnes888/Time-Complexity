@@ -126,12 +126,8 @@ def radixSort(list, place = 0):
     
     # Recursion step / return step
     if isSorted(sortedList):
-        print("Sorted!")
-        printList(sortedList)
         return sortedList
     else:
-        print("Still not sorted! Iteration " + (str)(place))
-        printList(sortedList)
         radixSort(sortedList, place + 1)
 
 
