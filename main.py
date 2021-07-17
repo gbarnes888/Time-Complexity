@@ -140,7 +140,7 @@ heapsortlist = masterList[:]
 quicksortlist = masterList[:]
 bubblesortlist = masterList[:]
 insertionsortlist = masterList[:]
-regexsortlist = masterList[:]
+radixSortlist = masterList[:]
 
  #Run and time sort functions
  #Bubble Sort
@@ -167,11 +167,18 @@ mergeSort(mergesortlist)
 End = time.time()
 mergesort_runtime = End - Start
 
+#radix sort
+Start = time.time()
+radixSort(radixSortlist)
+End = time.time()
+radixsort_runtime = End - Start
+
  #print output
 print("Bubble Sort Runtime: " + str(bubbleSort_runtime) + " Seconds")
 print("insertion Sort Runtime: " + str(insertionSort_runtime) + " Seconds")
 print("heap Sort Runtime: " + str(heapsort_runtime) + " Seconds")
 print("Merge Sort Runtime: " + str(mergesort_runtime) + " Seconds")
+print("Radix Sort Runtime: " + str(radixsort_runtime) + " Seconds")
 
 # print(masterList)
 # print(bubblesortlist)
